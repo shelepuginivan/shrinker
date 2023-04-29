@@ -18,4 +18,18 @@ export class UrlService {
 
 		return url.origin
 	}
+
+	async addUrl(origin?: string, slug?: string): Promise<Url> {
+		if (!origin) {
+			throw ServerExceptionFactory.badRequest('parameter \'origin\' requred')
+		}
+
+		if (!slug) {
+			slug = randomUUID()
+		}
+
+		const createdUrl = await urlModel.create({ origin, slug })
+
+		return new Url(createdUrl.origin, createdUrl.slug)
+	}
 }
