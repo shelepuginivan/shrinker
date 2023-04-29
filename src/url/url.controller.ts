@@ -9,6 +9,7 @@ export class UrlController {
 		try {
 			const { slug } = req.params
 			const origin = await this.urlService.requestOnUrl(slug)
+
 			res.status(302).redirect(origin)
 		} catch (error) {
 			if (error instanceof ServerException) {
