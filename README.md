@@ -21,7 +21,7 @@ Example:
 
 ```json
 {
-	"origin": "https://github.com/",
+    "origin": "https://github.com/",
     "slug": "gh"
 }
 ```
@@ -38,8 +38,8 @@ Example
 
 ```json
 {
-	"origin": "https://github.com/",
-	"slug": "gh",
+    "origin": "https://github.com/", 
+    "slug": "gh",
     "shortenedLink": "http://localhost:8000/gh"
 }
 ```
