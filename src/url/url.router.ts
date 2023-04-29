@@ -5,7 +5,8 @@ const urlRouter = Router()
 
 urlRouter.get(
 	'/:slug',
-	(req, res) => urlController.requestOnUrl(req, res)
+	(req, res, next) =>
+		urlController.requestOnUrl(req, res, next)
 )
 urlRouter.post('/')
 
