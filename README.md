@@ -54,7 +54,7 @@ If slug weren't found, returns 404 status code.
 Clone this repository
 
 ```shell
-git clone
+git clone https://github.com/shelepuginivan/shrinker.git
 cd shrinker
 ```
 
