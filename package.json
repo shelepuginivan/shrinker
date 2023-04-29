@@ -4,7 +4,9 @@
   "description": "URL shortener",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint src --ext ts --fix"
+    "lint": "eslint src --ext ts --fix",
+    "build": "tsc",
+    "start": "node src/index.js"
   },
   "author": "Shelepugin Ivan <shelepuginivanm@gmail.com>",
   "license": "MIT",
