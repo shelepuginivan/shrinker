@@ -1,4 +1,5 @@
 import { Router } from 'express'
+
 import { urlController } from './url.module'
 
 const urlRouter = Router()
