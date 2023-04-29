@@ -9,6 +9,10 @@ urlRouter.get(
 	(req, res, next) =>
 		urlController.requestOnUrl(req, res, next)
 )
-urlRouter.post('/')
+urlRouter.post(
+	'/',
+	(req, res, next) =>
+		urlController.addUrl(req, res, next)
+)
 
 export default urlRouter
