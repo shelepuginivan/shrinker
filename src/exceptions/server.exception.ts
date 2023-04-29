@@ -1,4 +1,4 @@
-class ServerException extends Error {
+export class ServerException extends Error {
 	status: number
 
 	constructor(status: number, message: string) {
