@@ -36,7 +36,13 @@ export class UrlService {
 			slug = randomUUID()
 		}
 
-		const createdUrl = await urlModel.create({ origin, slug })
+		const candidate = await urlModel.findOne({ origin, slug })
+
+		if (candidate) {
+			return new Url(candidate.origin, candidate.slug)
+		}
+
+		const createdUrl = await urlModel.create({ origin, slug, isDefault })
 
 		return new Url(createdUrl.origin, createdUrl.slug)
 	}
