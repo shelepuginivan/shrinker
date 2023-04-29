@@ -23,8 +23,7 @@ const start = async () => {
 
 	await connect(mongoUri)
 	app.listen(port)
+	console.log(`Server started on port ${port}...`)
 }
 
-start()
-	.then(() => console.log('Server successfully started...'))
-	.catch((error) => console.log(error))
+start().catch((error) => console.log(error))
