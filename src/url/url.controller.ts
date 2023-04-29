@@ -1,4 +1,4 @@
-import { Request, Response } from 'express'
+import { NextFunction, Request, Response } from 'express'
 
 import { UrlService } from './url.service'
 
@@ -12,11 +12,18 @@ export class UrlController {
 
 			res.status(302).redirect(origin)
 		} catch (error) {
-			if (error instanceof ServerException) {
-				res.status(error.status).json({message: error.message})
-			} else {
-				res.status(500).json({message: 'unexpected server error'})
-			}
+			next(error)
+		}
+	}
+
+	async addUrl(req: Request, res: Response, next: NextFunction) {
+		try {
+			const { origin, slug } = req.body
+			const createdUrl = await this.urlService.addUrl(origin, slug)
+
+			res.status(200).json(createdUrl)
+		} catch (error) {
+			next(error)
 		}
 	}
 }
