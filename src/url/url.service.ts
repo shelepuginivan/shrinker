@@ -36,10 +36,14 @@ export class UrlService {
 			slug = randomUUID()
 		}
 
-		const candidate = await urlModel.findOne({ origin, slug })
+		const candidate = await urlModel.findOne({ slug })
 
 		if (candidate) {
-			return new Url(candidate.origin, candidate.slug)
+			if (candidate.origin === origin) {
+				return new Url(candidate.origin, candidate.slug)
+			}
+
+			throw ServerExceptionFactory.badRequest('this slug is already taken')
 		}
 
 		const createdUrl = await urlModel.create({ origin, slug, isDefault })
