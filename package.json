@@ -9,7 +9,9 @@
   "author": "Shelepugin Ivan <shelepuginivanm@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/config": "^3.3.0",
     "@types/express": "^4.17.17",
+    "@types/mongoose": "^5.11.97",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
     "@typescript-eslint/parser": "^5.59.1",
     "eslint": "^8.39.0",
