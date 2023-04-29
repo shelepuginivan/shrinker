@@ -1,4 +1,5 @@
 {
 	"mongoUri": "...",
-	"port": 0
+	"port": 0,
+	"host": "..."
 }
