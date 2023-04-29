@@ -20,11 +20,19 @@ export class UrlService {
 	}
 
 	async addUrl(origin?: string, slug?: string): Promise<Url> {
+		const isDefault = !slug
+
 		if (!origin) {
 			throw ServerExceptionFactory.badRequest('parameter \'origin\' requred')
 		}
 
 		if (!slug) {
+			const candidate = await urlModel.findOne({ origin, isDefault: true })
+
+			if (candidate) {
+				return new Url(candidate.origin, candidate.slug)
+			}
+
 			slug = randomUUID()
 		}
 
