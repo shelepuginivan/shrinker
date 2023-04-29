@@ -5,7 +5,7 @@ import { UrlService } from './url.service'
 export class UrlController {
 	constructor(private readonly urlService: UrlService) {}
 
-	async requestOnUrl(req: Request, res: Response) {
+	async requestOnUrl(req: Request, res: Response, next: NextFunction) {
 		try {
 			const { slug } = req.params
 			const origin = await this.urlService.requestOnUrl(slug)
